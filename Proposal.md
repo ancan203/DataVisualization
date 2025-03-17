@@ -59,12 +59,12 @@ This dataset provides a rich and structured source of information on medical res
 - The datasets will be linked via **DOI**, ensuring each model is associated with its corresponding study.
 - Missing values will be addressed through **interpolation** or **filtering**, depending on the extent of the gaps.
 
-### For Question 1: Health Disparity Analysis
+### 1. Health Disparity Analysis
 - Stratified comparisons of health outcomes (`point`, `lower`, `upper`) across demographic factors like `race` and `study_location`.
 - Statistical tests (e.g., **t-tests**, **ANOVA**) to assess significant differences.
 - Visualization through **confidence interval plots** and **bar charts**.
 
-### For Question 2: Predictive Modeling of Health Outcomes
+### 2. Predictive Modeling of Health Outcomes
 - Identifying key predictors by analyzing **covariates**, `treatment_received`, and `access_to_care`.
 - Running **regression models** to measure the impact of different factors on outcomes.
 - Presenting results through **correlation matrices** and **coefficient plots**.
