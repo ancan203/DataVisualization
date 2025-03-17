@@ -1,15 +1,32 @@
 ## Proposal: Investigating Health Disparities and Key Factors in Medical Outcomes
 
-### Dataset Overview
-This project utilizes two datasets:
+### Dataset Description
 
-- **Model Data (`model_dat.csv`)** – Contains 6,804 rows and 16 columns, detailing statistical models from various studies.  
-  - Key fields: model numbers, outcomes, confidence intervals, stratification groups, and covariates.
+This project utilizes two datasets to examine medical research trends and health disparities.
 
-- **Article Data (`article_dat.csv`)** – Comprises 318 rows and 65 columns, providing metadata on research articles.  
-  - Key fields: study aims, locations, health outcomes, and demographic variables like race and ethnicity.
+#### 1. Model Data (`model_dat.csv`)
+- **Provenance**: Extracted from medical research studies.
+- **Dimensions**: 6,804 rows × 16 columns.
+- **Key Variables**:
+  - `doi`: Unique study identifier.
+  - `model_number`: Statistical model reference.
+  - `outcome`: Health outcome analyzed.
+  - `measure`: Reported statistical measure (e.g., odds ratio).
+  - `point`, `lower`, `upper`: Estimate and confidence intervals.
+  - `stratgrp`, `subgrp`: Stratification variables (e.g., demographics).
 
-These datasets will be merged via the **DOI (Digital Object Identifier)** column to explore patterns in medical outcomes across different populations and study conditions.
+#### 2. Article Data (`article_dat.csv`)
+- **Provenance**: Metadata on medical research articles.
+- **Dimensions**: 318 rows × 65 columns.
+- **Key Variables**:
+  - `doi`, `pmid`: Study identifiers.
+  - `journal`, `year`, `title`, `abstract`: Study metadata.
+  - `study_location`: Geographic study area.
+  - `race1`, `eth1`: Reported racial and ethnic categories.
+  - `health_outcome`: Primary health outcome studied.
+  - `treatment_received`, `access_to_care`: Healthcare access and treatment indicators.
+
+The datasets are merged via `doi` to connect study-level information with statistical models, allowing for in-depth analysis of research representation and health disparities.
 
 ### Why This Dataset?
 Health disparities remain a pressing issue in medicine. Understanding how factors like race, study location, and treatment access influence outcomes can help bridge gaps in healthcare. By analyzing real-world research data, we can quantify disparities and identify key predictors of health outcomes.
@@ -28,7 +45,7 @@ Health disparities remain a pressing issue in medicine. Understanding how factor
 
 #### Merging and Cleaning Data
 - The datasets will be linked via **DOI**, ensuring each model is associated with its corresponding study.
-- Missing values will be addressed through **imputation** or **filtering**, depending on the extent of the gaps.
+- Missing values will be addressed through **interpolation** or **filtering**, depending on the extent of the gaps.
 
 #### Health Disparity Analysis
 - Stratified comparisons of health outcomes (`point`, `lower`, `upper`) across demographic factors like `race` and `study_location`.
