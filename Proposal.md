@@ -1,8 +1,20 @@
 ## Proposal: Investigating Health Disparities and Key Factors in Medical Outcomes
+### Members:
 
-### Dataset Description
+- Nguyen Canh Huy
+- Can Ha An
+- Dao Chi Tuong
 
-This project utilizes two datasets to examine medical research trends and health disparities.
+### Dataset 
+**Dataset name:** Academic Literature on Racial and Ethnic Disparities in Reproductive Medicine in the US
+
+**Dataset Provenance**:
+
+The dataset we are using was explored in the July 2023 article a review article [Racial and ethnic disparities in reproductive medicine in the United States: a narrative review of contemporary high-quality evidence](https://www.ajog.org/article/S0002-9378(24)00775-0/fulltext), published in the *American Journal of Obstetrics and Gynecology* in January 2025. The original paper focuses on the racial and ethnic inequities in ob/gyn. The dataset suggestion is credited to [Kat Correia from Amherst College](https://github.com/katcorr).
+
+The dataset consists of two related tables, **`article_dat.csv`** and **`model_dat.csv`**. **`article_dat.csv`** contains metadata for articles published in medical journals, including bibliographic identifiers (PubMed ID, DOI), journal details, publication date, and study characteristics. The **`model_dat.csv`** file focuses on statistical models within these articles: model numbers, stratification details, subanalysis, outcome measures, effect size estimates (e.g., odds ratio, risk ratio), covariates, and confidence intervals.
+
+**Dataset Dimensions**:
 
 #### 1. Model Data (`model_dat.csv`)
 - **Provenance**: Extracted from medical research studies.
