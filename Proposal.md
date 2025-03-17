@@ -5,8 +5,8 @@
 - Can Ha An
 - Dao Chi Tuong
 
-## Dataset 
-### **Dataset name:** Academic Literature on Racial and Ethnic Disparities in Reproductive Medicine in the US
+## Dataset Details 
+### **Dataset name:** **Academic Literature on Racial and Ethnic Disparities in Reproductive Medicine in the US**
 
 ### **Dataset Provenance**:
 
@@ -43,30 +43,58 @@ The datasets are merged via `doi` to connect study-level information with statis
 ## Why This Dataset?
 This dataset provides a rich and structured source of information on medical research, particularly in the context of healthcare disparities and gynecological health outcomes, both article-level and model-level. It allows for exploration of how different factors contribute to various gynecological conditions and how they have been studied over time, and allows us to quantify disparities and identify key predictors of health outcomes.
 
-## Research Questions
+## Research Questions and Analysis Plan
+### Preprocessing: Data Integration & Cleaning
+- Merge `model_dat.csv` and `article_dat.csv` using `doi`.
+- Handle missing values and inconsistencies in `race1` and `eth1` via interpolation or deletion, depending on the extent of missing data.
 
-### 1. How are race and ethnicity categorized in medical research, and what patterns emerge?
-- **Which racial and ethnic groups are most frequently reported?**
-- Are there inconsistencies or missing data in how race/ethnicity is recorded?
-- How do sample sizes vary across groups, and what implications does this have for representation in research?
+### Question 1: How are race and ethnicity categorized in medical research?
+We examine how racial and ethnic categories are recorded across studies, identify inconsistencies or missing data, and assess representation.
 
-### 2. What factors most strongly influence health outcomes across studies?
-- We aim to determine which variables (e.g., access to care, study type, or treatment received) are most predictive of health disparities.
+#### Key Variables:
+- **Race/Ethnicity Categorization**: `race1`, `eth1` (Primary categories in studies)
+- **Study Metadata**: `study_location`, `year`, `journal`
+- **Data Quality Indicators**: Missing values or inconsistencies in `race1`, `eth1`
 
-## Analysis Plan
+#### Approach:
+1. **Distribution Analysis**
+   - Count occurrences of racial/ethnic groups to identify most frequently reported groups.
+   - Compare representation across study locations and time periods.
+2. **Data Completeness & Consistency**
+   - Identify missing or ambiguous values in `race1` and `eth1`.
+   - Analyze variations in racial/ethnic categorization across studies.
+3. **Sample Size Disparities**
+   - Investigate variations in sample sizes by racial/ethnic group.
+   - Assess underrepresentation of certain groups.
 
-### Merging and Cleaning Data
-- The datasets will be linked via **DOI**, ensuring each model is associated with its corresponding study.
-- Missing values will be addressed through **interpolation** or **filtering**, depending on the extent of the gaps.
+#### Potential Visualizations:
+- **Bar charts & histograms**: Frequency of racial/ethnic groups by year/study location.
+- **Heatmaps**: Patterns of missing racial/ethnic data.
+- **Box plots**: Sample size distribution across groups.
 
-### 1. Health Disparity Analysis
-- Stratified comparisons of health outcomes (`point`, `lower`, `upper`) across demographic factors like `race` and `study_location`.
-- Statistical tests (e.g., **t-tests**, **ANOVA**) to assess significant differences.
-- Visualization through **confidence interval plots** and **bar charts**.
+### Question 2: What factors influence health outcomes across studies?
+We identify variables (e.g., access to care, study type, treatment received) that predict health disparities in reproductive medicine.
 
-### 2. Predictive Modeling of Health Outcomes
-- Identifying key predictors by analyzing **covariates**, `treatment_received`, and `access_to_care`.
-- Running **regression models** to measure the impact of different factors on outcomes.
-- Presenting results through **correlation matrices** and **coefficient plots**.
+#### Key Variables:
+- **Health Outcomes**: `outcome` (Medical conditions/results)
+- **Predictors of Health Disparities**:
+  - `treatment_received`, `access_to_care` (Healthcare access/treatment indicators)
+  - `measure` (Statistical measure: odds ratio, risk ratio)
+  - `point`, `lower`, `upper` (Effect sizes & confidence intervals)
+  - `subgrp`, `stratgrp` (Demographic stratifications)
 
-By following this approach, we aim to provide meaningful insights into health disparities and the driving forces behind medical outcomes.
+#### Approach:
+1. **Correlation Analysis**
+   - Assess associations between healthcare access (`treatment_received`, `access_to_care`) and health outcomes (`outcome`).
+   - Identify health conditions most linked to disparities in care.
+2. **Effect Size Comparison**
+   - Analyze odds ratios and risk ratios (`point`, `lower`, `upper`).
+   - Compare effect sizes across racial/ethnic subgroups (`subgrp`).
+3. **Predictive Modeling (if feasible)**
+   - Build regression models to determine key predictors of negative health outcomes.
+   - Examine how disparities change when controlling for demographics (`subgrp`, `stratgrp`).
+
+#### Potential Visualizations:
+- **Box plots & violin plots**: Effect size comparisons (e.g., odds ratios) across treatment groups.
+- **Scatter plots**: Relationship between access to care and health outcomes.
+- **Regression coefficient plots**: Identifying key predictors of disparities.
