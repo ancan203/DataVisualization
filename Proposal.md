@@ -72,6 +72,11 @@ We examine how racial and ethnic categories are recorded across studies, identif
 - **Heatmaps**: Patterns of missing racial/ethnic data.
 - **Box plots**: Sample size distribution across groups.
 
+####  Expected Deliverables:
+- **A report summarizing the frequency and distribution of racial/ethnic categories in studies.
+- **Visualizations: bar charts, heatmaps, and box plots highlighting inconsistencies and disparities.
+- **A data completeness assessment, including missing values and categorization variations.
+
 ### Question 2: What factors influence health outcomes across studies?
 We identify variables (e.g., access to care, study type, treatment received) that predict health disparities in reproductive medicine.
 
@@ -98,3 +103,8 @@ We identify variables (e.g., access to care, study type, treatment received) tha
 - **Box plots & violin plots**: Effect size comparisons (e.g., odds ratios) across treatment groups.
 - **Scatter plots**: Relationship between access to care and health outcomes.
 - **Regression coefficient plots**: Identifying key predictors of disparities.
+
+#### Expected Deliverables:
+- **A statistical report detailing correlations and trends in health disparities.
+- **Visualizations: scatter plots, box plots, and regression coefficient plots.
+- **A predictive model output, including key predictor variables and their impact on health outcomes.
