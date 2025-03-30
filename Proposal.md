@@ -23,8 +23,8 @@ The dataset consists of two related tables, `article_dat.csv` and `model_dat.csv
 - **Key Variables**:
   - `doi`: Unique study identifier.
   - `model_number`: Statistical model reference.
-  - `outcome`: Health outcome analyzed.
-  - `measure`: Reported statistical measure (e.g., odds ratio).
+  - `outcome`: 	Outcome measure for the model as reported in the article.
+  - `measure`: Estimated measure from the model: incidence, prevalence, odds ratio (OR), risk ratio (RR), hazards ratio (HR), absolute difference, percent, other.
   - `point`, `lower`, `upper`: Estimate and confidence intervals.
   - `stratgrp`, `subgrp`: Stratification variables (e.g., demographics).
 
@@ -36,8 +36,8 @@ The dataset consists of two related tables, `article_dat.csv` and `model_dat.csv
   - `journal`, `year`, `title`, `abstract`: Study metadata.
   - `study_location`: Geographic study area.
   - `race1`, `eth1`: Reported racial and ethnic categories.
-  - `health_outcome`: Primary health outcome studied.
-  - `treatment_received`, `access_to_care`: Healthcare access and treatment indicators.
+  - `health_outcome`: Whether the article addresses disparities in health outcomes (1=yes, 0=no).
+  - `treatment_received`, `access_to_care`: Whether the article address disparities in both treatment received and access to care.
 
 The datasets are merged via `doi` to connect study-level information with statistical models, allowing for in-depth analysis of research representation and health disparities.
 
@@ -80,37 +80,29 @@ We examine how racial and ethnic categories are recorded and represented across 
 
 ---
 
-### Question 2: What factors influence health outcomes across studies?
-Identify key predictors of health disparities, such as healthcare access (`access_to_care`), treatment received (`treatment_received`), and demographics (`stratgrp`, `subgrp`).
+### Question 2: What health outcomes have been studied, and what disparities have been identified?
+Identify health outcomes that have been studied, group them into health categories, and see how prevalent each health category is in research, and whether racial disparities are identified in said health category. Identify which racial groups are most often compared/studied across articles in different health categories.
 
 #### Key Variables
-- **Health Outcomes**: `outcome`
+- **Health Outcomes**: `outcome`, `health_outcome`
 - **Predictors of Health Disparities**:
   - `treatment_received`, `access_to_care`
-  - Effect sizes (`measure`, `point`, `lower`, `upper`)
-  - Demographics (`subgrp`, `stratgrp`)
+  - Race compared: `race1`, `race2`, `race3`, etc.
 
 #### Approach
-1. **Correlation Analysis**
-   - Assess associations between healthcare access and outcomes.
-   - Identify conditions linked to care disparities.
+1. **Descriptive Analysis**: To summarize and describe what’s in the data:
+- Health outcomes most studied by count and grouping
+- Frequencies of outcomes by group (e.g., % of Black patients with cesarean delivery)
 
-2. **Effect Size Comparison**
-   - Analyze and compare odds ratios and risk ratios.
-   - Visualize disparities using forest plots.
-
-3. **Predictive Modeling (if feasible)**
-   - Conduct predictive modeling if minimum criteria are met (≥500 complete cases, <20% missingness).
-   - Build regression models identifying key outcome predictors.
+2. **Correlation Analysis**
+   - Identify whether there is a correlation between the race studied and their health outcomes
 
 #### Potential Visualizations
-- Box plots & violin plots (effect sizes)
-- Scatter plots (healthcare access vs. outcomes)
-- Forest plots (effect sizes and confidence intervals)
-- Regression coefficient plots (key predictors)
+- Scatter plots/line plots (race vs. health outcomes)
+- Bubble graph: To identify the health categories most studied
 
 #### Expected Deliverables
 - Statistical report detailing health disparity correlations.
-- Visualizations: scatter plots, box plots, forest plots, regression coefficient plots.
-- Predictive model output and interpretation.
+- Visualizations: scatter plots, bar chart, bubble graph
+
 
