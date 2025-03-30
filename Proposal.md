@@ -83,26 +83,46 @@ We examine how racial and ethnic categories are recorded and represented across 
 ### Question 2: What health outcomes have been studied, and what disparities have been identified?
 Identify health outcomes that have been studied, group them into health categories, and see how prevalent each health category is in research, and whether racial disparities are identified in said health category. Identify which racial groups are most often compared/studied across articles in different health categories.
 
-#### Key Variables
-- **Health Outcomes**: `outcome`, `health_outcome`
-- **Predictors of Health Disparities**:
-  - `treatment_received`, `access_to_care`
-  - Race compared: `race1`, `race2`, `race3`, etc.
 
+ #### Key Variables
+ - **Health Outcomes**: `outcome`
+ - **Predictors of Health Disparities**:
+   - `treatment_received`, `access_to_care` (Healthcare access/treatment indicators)
+   - `measure` (Statistical measure: odds ratio, risk ratio)
+   - `point`, `lower`, `upper` (Effect sizes & confidence intervals)
+   - Effect sizes (`measure`, `point`, `lower`, `upper`)
+ 
 #### Approach
 1. **Descriptive Analysis**: To summarize and describe what’s in the data:
-- Health outcomes most studied by count and grouping
-- Frequencies of outcomes by group (e.g., % of Black patients with cesarean delivery)
+  - Health outcomes most studied by count and grouping
+  - Frequencies of outcomes by group (e.g., % of Black patients with cesarean delivery)
 
-2. **Correlation Analysis**
-   - Identify whether there is a correlation between the race studied and their health outcomes
+2. **Effect Size Comparison**
+  - Analyze odds ratios and risk ratios (`point`, `lower`, `upper`).
+  - Compare effect sizes across racial/ethnic subgroups (`subgrp`).
+  - Visualize disparities using forest plots.
+ 
+3. **Predictive Modeling (if feasible)**
+  - Build regression models to determine key predictors of negative health outcomes.
+  - Examine how disparities change when controlling for demographics (`subgrp`, `stratgrp`).
+ 
+ #### Potential Visualizations:
+ - **Box plots & violin plots**: Effect size comparisons (e.g., odds ratios) across treatment groups.
+ - **Scatter plots**: Relationship between access to care and health outcomes.
+ - **Regression coefficient plots**: Identifying key predictors of disparities.
+ 
+ #### Expected Deliverables:
+ - A statistical report detailing correlations and trends in health disparities.
+ - Visualizations: scatter plots, box plots, and regression coefficient plots.
+ - A predictive model output, including key predictor variables and their impact on health outcomes.
+    - Conduct predictive modeling if minimum criteria are met (≥500 complete cases, <20% missingness).
+    - Build regression models identifying key outcome predictors.
+ 
+ #### Expected Deliverables
+ - Statistical report detailing health disparity correlations.
+ - Visualizations: scatter plots, box plots, forest plots, regression coefficient plots.
+ - Predictive model output and interpretation.
 
-#### Potential Visualizations
-- Scatter plots/line plots (race vs. health outcomes)
-- Bubble graph: To identify the health categories most studied
 
-#### Expected Deliverables
-- Statistical report detailing health disparity correlations.
-- Visualizations: scatter plots, bar chart, bubble graph
 
 
