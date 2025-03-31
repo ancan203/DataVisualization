@@ -4,3 +4,9 @@ dash
 wordcloud 
 matplotlib
 numpy
+seaborn
+scipy
+statsmodels
+scikit-learn
+missingno
+rapidfuzz
